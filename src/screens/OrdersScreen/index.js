@@ -1,7 +1,7 @@
 import { View, Text, FlatList } from 'react-native'
 import React from 'react'
-import OrderListItem from '../components/OrderListItem'
-import orders from '../../assets/data/orders.json'
+import orders from '../../../assets/data/orders.json'
+import OrderListItem from '../../components/OrderListItem'
 
 const OrdersScreen = () => {
   return (
