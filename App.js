@@ -5,7 +5,7 @@ import RootNavigator from './src/navigation';
 import { Amplify } from 'aws-amplify'
 import awsconfig from './src/aws-exports'
 import { withAuthenticator } from 'aws-amplify-react-native/dist/Auth';
-Amplify.configure(awsconfig)
+Amplify.configure({...awsconfig, Analytics: {disabled: true}})
 
 function App() {
   return (
