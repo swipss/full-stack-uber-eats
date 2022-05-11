@@ -1,0 +1,87 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ubereatsuser-dev-205529-authRole",
+      "UnauthRoleArn": "arn:aws:iam::376236255848:role/amplify-ubereatsuser-dev-205529-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::376236255848:role/amplify-ubereatsuser-dev-205529-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-ubereatsuser-dev-205529-deployment",
+      "UnauthRoleName": "amplify-ubereatsuser-dev-205529-unauthRole",
+      "StackName": "amplify-ubereatsuser-dev-205529",
+      "StackId": "arn:aws:cloudformation:eu-north-1:376236255848:stack/amplify-ubereatsuser-dev-205529/e3510d00-ce2e-11ec-b1e8-0a27d9bc50bc",
+      "AmplifyAppId": "d3qrssxomvfjau"
+    }
+  },
+  "auth": {
+    "UberEatsUser": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 6,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "UserPoolId": "eu-north-1_GDn7FIygg",
+        "AppClientIDWeb": "2vu97j0soara0uikjuf0nc54mh",
+        "AppClientID": "3hu95es7ch688ti3hubni03l7d",
+        "IdentityPoolId": "eu-north-1:64792b0b-1d46-4b2b-b844-c67d6a33dee3",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-north-1:376236255848:userpool/eu-north-1_GDn7FIygg",
+        "IdentityPoolName": "testAuthIdentityPool__dev",
+        "UserPoolName": "UberEatsUser"
+      },
+      "lastPushTimeStamp": "2022-05-08T09:13:09.091Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereatsuser-dev-205529-deployment/amplify-cfn-templates/auth/UberEatsUser-cloudformation-template.json",
+        "logicalId": "authUberEatsUser"
+      }
+    }
+  },
+  "api": {
+    "UberEatsUser": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "xpareqpa3bbrfjctyvshubee54",
+        "GraphQLAPIEndpointOutput": "https://dli36u7rvvfknpcx4l7pliwxg4.appsync-api.eu-north-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-4j4eaycapbbovb5fdvtgmpgbae"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ubereatsuser-dev-205529-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiUberEatsUser"
+      },
+      "lastPushTimeStamp": "2022-05-08T09:13:09.094Z",
+      "lastPushDirHash": "vB43sPinQrdL4z/tgsa76XtC+Gw="
+    }
+  }
+}
