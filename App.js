@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './src/navigation';
 import AuthContextProvider from './src/contexts/AuthContext';
+import BasketContextProvider from './src/contexts/BasketContext';
 
 import { Amplify } from 'aws-amplify'
 import awsconfig from './src/aws-exports'
@@ -12,7 +13,9 @@ function App() {
   return (
     <NavigationContainer>
       <AuthContextProvider>
-        <RootNavigator />
+        <BasketContextProvider>
+          <RootNavigator />
+        </BasketContextProvider>
       </AuthContextProvider>
         <StatusBar style="light" />
     </NavigationContainer>

@@ -1,29 +1,30 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native'
 import React, {useState} from 'react'
-import restaurants from '../../../assets/data/restaurants.json'
 import { AntDesign } from '@expo/vector-icons'
 import BasketDishItem from '../../components/BasketDishItem'
+import { useBasketContext } from '../../contexts/BasketContext'
 
-const restaurant = restaurants[1]
 
 
 const BasketScreen = () => {
 
+    const {restaurant, basketDishes, totalPrice} = useBasketContext()
+
   return (
     <View style={styles.page}>
-      <Text style={styles.title}>{restaurant.name}</Text>
+      <Text style={styles.title}>{restaurant?.name}</Text>
 
         <Text style={{fontWeight: 'bold', marginTop: 20, fontSize: 20}}>Your items</Text>
 
         <FlatList 
-        data={restaurant.dishes}
+        data={basketDishes}
         renderItem={({item}) => <BasketDishItem basketDish={item} />}
         />
 
       <View style={styles.separator} />
 
     <View style={styles.button}>
-        <Text style={styles.buttonText}>Create order</Text>
+        <Text style={styles.buttonText}>Create order &#8226; ${totalPrice.toFixed(2)}</Text>
     </View>
 
     </View>

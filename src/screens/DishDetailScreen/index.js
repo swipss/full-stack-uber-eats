@@ -6,9 +6,12 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 import { DataStore } from 'aws-amplify'
 import { Dish } from '../../models'
 import { ActivityIndicator } from 'react-native-paper'
+import { useBasketContext } from '../../contexts/BasketContext'
 
 
 const DishDetailScreen = () => {
+
+    const {addDishToBasket} = useBasketContext()
 
     const [dish, setDish] = useState(null)
 
@@ -44,6 +47,11 @@ const DishDetailScreen = () => {
         return <ActivityIndicator size={"large"} color={'black'} style={{paddingTop: 50}}/>
     }
 
+    const onAddToBasket = async () => {
+        await addDishToBasket(dish, quantity)
+        navigation.goBack()
+    }
+
   return (
     <View style={styles.page}>
       <Text style={styles.title}>{dish.name}</Text>
@@ -56,7 +64,7 @@ const DishDetailScreen = () => {
         <AntDesign name='pluscircleo' size={60} color='black' onPress={onPlus}/>
     </View>
 
-    <Pressable onPress={() => navigation.navigate("Basket")} style={styles.button}>
+    <Pressable onPress={onAddToBasket} style={styles.button}>
         <Text style={styles.buttonText}> Add {quantity} to basket &#8226; ${getTotal()}</Text>
     </Pressable>
 

@@ -3,13 +3,14 @@ import React, {useState} from 'react'
 
 
 const BasketDishItem = ({ basketDish }) => {
+    console.log(basketDish.name)
     return (
         <View style={styles.row}>
             <View style={styles.quantityContainer}>
-                <Text>1</Text>
+                <Text>{basketDish.quantity}</Text>
             </View>
-            <Text style={styles.nameText}>{basketDish.name}</Text>
-            <Text style={styles.priceText}>${basketDish.price}</Text>
+            <Text style={styles.nameText}>{basketDish.Dish.name}</Text>
+            <Text style={styles.priceText}>${basketDish.Dish.price}</Text>
         </View>
     )
 }
