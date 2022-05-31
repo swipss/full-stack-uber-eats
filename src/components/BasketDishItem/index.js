@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 
 
 const BasketDishItem = ({ basketDish }) => {
-    console.log(basketDish.name)
+    // console.log(basketDish.Dish.name)
     return (
         <View style={styles.row}>
             <View style={styles.quantityContainer}>
